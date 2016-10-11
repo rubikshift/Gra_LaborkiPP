@@ -1,5 +1,8 @@
 #include <iostream>
+#include<cstdio>
+
 #define ERROR -1
+
 using namespace std;
 
 int dodawanieModuloN(int a, int b, int n)
@@ -26,8 +29,8 @@ int odejmowanieModuloN(int a, int b, int n)
 	int e = znajdzElementPrzeciwny(b, n);
 	if (e == ERROR)
 		return ERROR;
-	else 
-		return ((a % n) + e) % n;
+	else
+		return dodawanieModuloN(a, e, n);
 }
 
 int znajdzElementOdwortny(int b, int n)
@@ -45,7 +48,7 @@ int dzielenieModuloN(int a, int b, int n)
 	if (b == 0 || e == ERROR)
 		return ERROR;
 	else
-		return ((a % n) * e) % n;
+		return mnozenieModuloN(a, e, n);
 }
 
 int main()
@@ -72,11 +75,10 @@ int main()
 			case '0':
 				cout << "Podaj liczby a, b, n: ";
 				cin >> a >> b >> n;
-				if (n == 1 || n == 0)
+				if (n <= 1 || a < 0 || b < 0)
 				{
 					cout << "Dzialania nie maja sensu." << endl;
-					cout << "Nacisnij Enter" << endl;
-					cin.ignore().get();
+					system("pause");
 				}
 			case '1':
 				wynik = dodawanieModuloN(a, b, n);
@@ -99,15 +101,13 @@ int main()
 		else if (wynik == ERROR)
 		{
 			cout << "Blad - dzialanie nie wykonalne." << endl;
-			cout << "Nacisnij Enter" << endl;
-			cin.ignore().get();
+			system("pause");
 			system("cls");
 		}
 		else
 		{
 			cout << wynik << endl;
-			cout << "Nacisnij Enter" << endl;
-			cin.ignore().get();
+			system("pause");
 			system("cls");
 		}
 	}
