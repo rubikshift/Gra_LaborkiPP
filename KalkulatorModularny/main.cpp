@@ -1,5 +1,5 @@
 #include <iostream>
-#include<cstdio>
+#include <cstdlib>
 
 #define ERROR -1
 
