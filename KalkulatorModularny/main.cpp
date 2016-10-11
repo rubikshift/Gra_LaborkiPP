@@ -94,7 +94,11 @@ int main()
 				cout << "Wynik dzielenia " << a << "/" << b << " modulo " << n << ": ";
 				break;
 			case '5': return 0; break;
-			default: break;
+			default: 
+				cout << "Nieznana komenda" << endl; 
+				system("pause"); 
+				system("cls"); 
+				continue; break;
 		}
 		if (id == '0')
 			system("cls");
